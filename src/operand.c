@@ -496,6 +496,10 @@ pedix_set_operand_by_id32(decoded_instruction_t *decoded, __operand_t id,
 
     pedix_set_operand_rm(decoded, dst);
     break;
+  case OPERAND_RM_16:
+    strcpy(decoded->ptr_text, "WORD PTR");
+    pedix_set_operand_rm(decoded, dst);
+    break;
   case OPERAND_R_16_32:
     if (decoded->operand_size == WORD_LEN)
       strcpy(dst, modrm_reg16[decoded->modrm.reg]);
